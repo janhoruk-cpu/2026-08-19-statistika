@@ -118,7 +118,7 @@ export const CourseSidebar: React.FC<CourseSidebarProps> = ({
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed top-14 left-0 bottom-0 w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-40 transition-transform duration-300 ease-in-out flex flex-col shadow-xl lg:shadow-none select-none ${
+        className={`fixed top-14 left-0 bottom-0 w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-40 transition-transform duration-300 ease-in-out flex flex-col shadow-xl lg:shadow-none ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -171,7 +171,7 @@ export const CourseSidebar: React.FC<CourseSidebarProps> = ({
               type="text"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder="Išči po lekcijah in konceptih..."
+              placeholder="Išči po učnih enotah in konceptih..."
               className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500"
             />
             {searchQuery && (

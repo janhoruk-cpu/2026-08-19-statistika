@@ -39,7 +39,7 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
   };
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto">
       {/* Top Header */}
       <div className="sticky top-0 z-20 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -158,9 +158,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                 <FileText className="h-3.5 w-3.5" />
                 <span>Ozadje in postavitev eksperimenta</span>
               </h4>
-              <div className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <FormattedMathText text={selectedCase.background} />
-              </div>
+              </p>
             </div>
 
             {/* Empirical Data Summary Table */}
@@ -231,9 +231,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                     <span className="h-5 w-5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
-                    <div className="flex-1">
+                    <span className="flex-1">
                       <FormattedMathText text={f} />
-                    </div>
+                    </span>
                   </div>
                 ))}
               </div>
@@ -245,9 +245,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                 <Lightbulb className="h-4 w-4 text-amber-600 shrink-0" />
                 <span>Glavno metodološko sporočilo</span>
               </div>
-              <div className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
+              <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
                 <FormattedMathText text={selectedCase.takeaway} />
-              </div>
+              </p>
             </div>
 
             {/* Discussion & Critical Thinking Prompts */}

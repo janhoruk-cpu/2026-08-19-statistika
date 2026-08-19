@@ -121,9 +121,12 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
     : [];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-xs select-none">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-xs cursor-default"
+    >
       <div
-        className="w-full max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95 duration-150"
+        className="w-full max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95 duration-150 cursor-default"
         onClick={e => e.stopPropagation()}
       >
         {/* Search Input Header */}
@@ -232,10 +235,10 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
 
         {/* Search Results List */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5">
-          {/* Lessons Section */}
+          {/* Units Section */}
           <div className="space-y-2">
             <h3 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
-              <span>Lekcije v učbeniku ({matchedUnits.length})</span>
+              <span>Učne enote v učbeniku ({matchedUnits.length})</span>
             </h3>
 
             <div className="space-y-1.5">
@@ -246,7 +249,7 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
                     onClose();
                     onSelectUnit(unit.id);
                   }}
-                  className="w-full flex items-center justify-between p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30 transition-all text-left group"
+                  className="w-full flex items-center justify-between p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30 transition-all text-left group cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">

@@ -88,6 +88,71 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Standardizirana zgradba podatkovne matrike, kjer: 1. vsaka vrstica predstavlja natanko eno opazovano enoto (primer), 2. vsak stolpec natanko eno spremenljivko in 3. vsaka celica natanko eno izmerjeno vrednost.',
     example: 'V tabeli pacientov ima vsaka vrstica ID enega bolnika, stolpci pa so [ID, Starost, Krvni_tlak, Terapija].'
   },
+  {
+    id: 'cleveland-mcgill-hierarhija',
+    slo: 'Cleveland-McGillova hierarhija zaznavanja',
+    eng: 'Cleveland-McGill Perception Hierarchy',
+    category: 'Uvod in metodologija',
+    chapterId: 'chapter-0',
+    unitId: 'unit-0-4',
+    definition: 'Empirično dokazana lestvica natančnosti, s katero človeški možgani dekodirajo vizualne simbole v podatke: 1. Položaj na skupni osi (najbolj natančno), 2. Dolžina, 3. Kot/nagib, 4. Površina, 5. 3D volumen, 6. Barvna nasičenost/svetlost (najmanj natančno za količine).',
+    example: 'Stolpčni graf na skupni ničelni osi omogoča 10-krat bolj natančno primerjavo kot tortni diagram z več izseki ali 3D krogelni graf.',
+    details: 'Raziskava Clevelanda in McGilla (1984) ter kasnejša potrditev Heera in Bostocka (2010) predstavljata temelj znanstvenega načrtovanja podatkovnih grafik.'
+  },
+  {
+    id: 'fasetiranje-small-multiples',
+    slo: 'Fasetiranje (Small Multiples / Mreža podgrafov)',
+    eng: 'Faceting / Small Multiples',
+    category: 'Uvod in metodologija',
+    chapterId: 'chapter-0',
+    unitId: 'unit-0-4',
+    definition: 'Tehnika vizualizacije, pri kateri podatke razdelimo po kategorijah in za vsako podskupino narišemo ločen, a strukturno in merilno povsem usklajen mini grafikon v urejeni mreži.',
+    example: 'Prikaz trenda BDP za 12 držav v mreži 3×4 z enako Y-osjo, namesto prepletenih 12 barvnih črt na enem samem grafu.',
+    details: 'Tufte in Healy to tehniko poudarjata kot eno najučinkovitejših rešitev za primerjavo večdimenzionalnih podatkov brez kognitivne preobremenitve.'
+  },
+  {
+    id: 'graf-koeficientov-forest',
+    slo: 'Grafikon modelskih koeficientov (Forest / Dot-and-Whisker plot)',
+    eng: 'Coefficient / Forest Plot',
+    category: 'Linearna regresija',
+    chapterId: 'chapter-8',
+    unitId: 'unit-8-3',
+    definition: 'Vizualni prikaz ocen parametrov regresijskih modelov (β_j), kjer vsaka spremenljivka dobi točko (točkovna ocena) in vodoravni interval (npr. 95 % interval zaupanja). Omogoča takojšnjo oceno velikosti učinka in statistične značilnosti glede na ničelno črto.',
+    formula: '\\hat{\\beta}_j \\pm t^* \\cdot \\text{SE}(\\hat{\\beta}_j)',
+    example: 'Prikaz učinkov izobrazbe, izkušenj in spola na plačo v enem grafu, kjer takoj vidimo, kateri intervali prečkajo ničlo.',
+    details: 'Zamenjuje dolge in težko berljive tabele regresijskih koeficientov z zvezdicami (***) ter omogoča neposredno vizualno primerjavo več modelov.'
+  },
+  {
+    id: 'preobremenjen-graf-spaghetti',
+    slo: 'Preobremenjen grafikon (Spaghetti Plot)',
+    eng: 'Spaghetti Plot',
+    category: 'Uvod in metodologija',
+    chapterId: 'chapter-0',
+    unitId: 'unit-0-4',
+    definition: 'Slab vizualni prikaz časovnih vrst, kjer je na enem koordinatnem sistemu narisanih preveč (npr. 10–20) prekrivajočih se črt različnih barv, kar onemogoča sledenje posameznim skupinam in ustvarja optični kaos.',
+    example: 'Graf z 15 državami v različnih barvah in 15-delno legendo, ki od bralca zahteva nenehno skakanje med grafom in legendo.',
+    details: 'Rešitev je bodisi fasetiranje (small multiples) bodisi fokusno poudarjanje (ena izbrana serija v barvi, ostale v nevtralni sivi).'
+  },
+  {
+    id: 'stresanje-tock-jitter',
+    slo: 'Stresanje točk (Jittering)',
+    eng: 'Jittering',
+    category: 'Opisna statistika in spremenljivke',
+    chapterId: 'chapter-1',
+    unitId: 'unit-1-2',
+    definition: 'Grafični postopek dodajanja majhnega naključnega šuma (odklona) položaju točk na diskretnih ali zaokroženih spremenljivkah, da se prepreči popolno prekrivanje (overplotting) in razkrije prava gostota podatkov.',
+    example: 'Pri prikazu ocen od 1 do 5 pri 1.000 študentih bi se brez stresanja videlo le 5 točk; z dodanim vodoravnim stresanjem pa se razkrije celotna porazdelitev frekvenc.'
+  },
+  {
+    id: 'perceptivno-enakomerna-lestvica',
+    slo: 'Perceptivno enakomerna barvna lestvica (Perceptually Uniform Colormap)',
+    eng: 'Perceptually Uniform Palette (Viridis / Cividis)',
+    category: 'Uvod in metodologija',
+    chapterId: 'chapter-0',
+    unitId: 'unit-0-4',
+    definition: 'Barvna lestvica, pri kateri je fizikalna sprememba v svetlosti (luminanci) natančno sorazmerna s človeškim zaznavanjem spremembe vrednosti skozi celoten razpon, ne ustvarja lažnih vizualnih mejnikov ter ostaja berljiva pri vseh oblikah barvne slepote in v sivinskem tisku.',
+    example: 'Paleta Viridis (od temno vijolične prek turkizne do svetlo rumene), ki je nadomestila zastarelo mavrično (Jet/Rainbow) paleto v sodobni znanosti.'
+  },
 
   // ==========================================
   // 2. VRSTE SPREMENLJIVK IN MERSKE LESTVICE

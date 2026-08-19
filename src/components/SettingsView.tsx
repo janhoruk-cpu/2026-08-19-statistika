@@ -118,7 +118,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     { id: 'large', label: 'Udobna', px: '18px', desc: 'Povečana berljivost' },
   ];
 
-  const themeList = Object.values(THEMES);
+  const themeEntries = Object.entries(THEMES) as [ThemeId, (typeof THEMES)[ThemeId]][];
 
   const tabs: { id: SettingsTab; label: string; icon: any; desc: string }[] = [
     { id: 'appearance', label: 'Videz & Barve', icon: Palette, desc: 'Svetla/temna tema in poudarki' },
@@ -135,7 +135,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   };
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Top Navigation Bar */}
       <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-6 flex items-center justify-between z-20 shrink-0">
         <div className="flex items-center gap-4">
@@ -319,12 +319,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {themeList.map(t => (
+                  {themeEntries.map(([themeKey, t]) => (
                     <button
-                      key={t.name}
-                      onClick={() => onSelectTheme(t.name)}
+                      key={themeKey}
+                      onClick={() => onSelectTheme(themeKey)}
                       className={`flex items-center justify-between p-3.5 rounded-xl border text-xs transition-all ${
-                        currentTheme === t.name
+                        currentTheme === themeKey
                           ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30 font-bold'
                           : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
                       }`}
@@ -336,7 +336,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                         />
                         <span className="text-slate-900 dark:text-slate-100">{t.label}</span>
                       </div>
-                      {currentTheme === t.name && (
+                      {currentTheme === themeKey && (
                         <Check className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
                       )}
                     </button>

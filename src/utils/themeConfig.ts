@@ -1,8 +1,8 @@
 import { ThemeColors, ThemeName } from '../types';
 
-export type ThemeId = ThemeName | 'warmPaper' | 'brilliant' | 'nordicMinimal';
+export type ThemeId = 'indigo' | 'warmPaper' | 'brilliant' | 'nordicMinimal' | 'violet' | 'amber';
 
-export const THEMES: Record<string, ThemeColors> = {
+export const THEMES: Record<ThemeId, ThemeColors> = {
   indigo: {
     name: 'indigo',
     label: 'Indigo Deep',
@@ -22,7 +22,7 @@ export const THEMES: Record<string, ThemeColors> = {
     chart5: '#f59e0b',
   },
   warmPaper: {
-    name: 'zinc',
+    name: 'warmPaper',
     label: 'Bret Victor Paper',
     primary: '#4f46e5',
     primaryHover: '#4338ca',
@@ -40,7 +40,7 @@ export const THEMES: Record<string, ThemeColors> = {
     chart5: '#d97706',
   },
   brilliant: {
-    name: 'emerald',
+    name: 'brilliant',
     label: 'Brilliant Masterclass',
     primary: '#059669',
     primaryHover: '#047857',
@@ -58,7 +58,7 @@ export const THEMES: Record<string, ThemeColors> = {
     chart5: '#8b5cf6',
   },
   nordicMinimal: {
-    name: 'zinc',
+    name: 'nordicMinimal',
     label: 'Nordic Clean',
     primary: '#0284c7',
     primaryHover: '#0369a1',

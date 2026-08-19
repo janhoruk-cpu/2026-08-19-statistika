@@ -49,7 +49,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({
   const progressPercent = Math.round((completedCount / Math.max(1, totalUnits)) * 100);
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Header */}
       <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between z-20 shrink-0">
         <div className="flex items-center gap-3 sm:gap-4">
@@ -172,11 +172,11 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-white font-bold text-sm shadow-xs"
                     style={{ backgroundColor: chapter.color || '#4f46e5' }}
                   >
-                    {chapter.chapterNumber === 0 ? '0' : chapter.chapterNumber}
+                    {chapter.chapterNumber === 0 ? 'U' : chapter.chapterNumber}
                   </div>
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                      {chapter.chapterNumber === 0 ? 'Uvodni modul' : `Poglavje ${chapter.chapterNumber}`}
+                      {chapter.chapterNumber === 0 ? 'Uvodni modul' : `${chapter.chapterNumber}. Poglavje`}
                     </span>
                     <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                       {chapter.title}
@@ -190,7 +190,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({
                       <CheckCircle2 className="h-4 w-4" /> Opravljeno ({visibleUnits.length}/{visibleUnits.length})
                     </span>
                   ) : (
-                    <span>{chapterCompletedCount} / {visibleUnits.length} lekcij</span>
+                    <span>{chapterCompletedCount} / {visibleUnits.length} enot</span>
                   )}
                 </div>
               </div>
@@ -208,7 +208,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({
                         onSelectUnit(unit.id);
                         onBack();
                       }}
-                      className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between h-full group ${
+                      className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between h-full group cursor-pointer ${
                         isCurrent
                           ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30 ring-2 ring-indigo-500/10'
                           : isDone
@@ -238,7 +238,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({
                       </div>
 
                       <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-medium text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
-                        <span>Začni lekcijo</span>
+                        <span>Odpri učno enoto</span>
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </button>

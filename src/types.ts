@@ -1,4 +1,13 @@
-export type ThemeName = 'indigo' | 'emerald' | 'violet' | 'rose' | 'amber' | 'zinc';
+export type ThemeName =
+  | 'indigo'
+  | 'emerald'
+  | 'violet'
+  | 'rose'
+  | 'amber'
+  | 'zinc'
+  | 'warmPaper'
+  | 'brilliant'
+  | 'nordicMinimal';
 
 export interface ThemeColors {
   name: ThemeName;

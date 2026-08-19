@@ -15,7 +15,7 @@ export const chapter8: ChapterConfig = {
       chapterId: 'chapter-8',
       title: 'Raztreseni grafikoni in Pearsonov koeficient korelacije (r)',
       subtitle: 'Smer, oblika in jakost linearne povezave med spremenljivkama',
-      leadParagraph: 'Kadar preučujemo odnos med dvema številskima spremenljivkama (npr. telesna teža in vnos kalorij ali višina staršev in višina otrok), podatke najprej prikažemo na raztresenem grafikonu (razsevnem diagramu). Za merjenje jakosti in smeri linearne povezave uporabimo Pearsonov koeficient korelacije r.',
+      leadParagraph: 'Kadar preučujemo odnos med dvema številskima spremenljivkama (npr. telesna teža in vnos kalorij ali višina staršev in višina otrok), podatke najprej prikažemo na raztresenem grafikonu (Scatterplot). Za merjenje jakosti in smeri linearne povezave uporabimo Pearsonov koeficient korelacije r.',
       deepDive: 'Pearsonov koeficient korelacije r meri moč in smer linearne povezanosti med dvema spremenljivkama: r = \\frac{1}{n-1} \\sum_{i=1}^n \\left(\\frac{x_i - \\bar{x}}{s_x}\\right) \\left(\\frac{y_i - \\bar{y}}{s_y}\\right). Vrednost r vedno leži med -1 in +1. Če je r = +1, točke ležijo na popolni naraščajoči premici; če je r = -1, ležijo na popolni padajoči premici; če je r = 0, med spremenljivkama ni linearne povezave. Izjemno pomembno: korelacija meri izključno LINEARNE odnose! Za ukrivljene odnose (npr. parabolo y = x²) je r lahko natanko 0, čeprav je med spremenljivkama popolna deterministična povezava. Poleg tega je koeficient r zelo občutljiv na osamelce.',
       mnemonic: {
         eli5: 'Korelacija je kot plesni par: r = +1 pomeni, da gresta vedno v isto smer v popolnem ritmu; r = -1, da gre eden naprej, drugi pa točno nazaj; r = 0 pa, da vsak pleše po svoje brez kakršnekoli povezave!',
@@ -240,13 +240,13 @@ print(f"Napoved za 8.5 h:   {y_napoved:.2f} minut")`,
       },
       explanationLevels: {
         simpleQuote: 'Reziduali razkrijejo tisto, kar je premica spregledala: dober model za seboj pusti le čist, enakomeren naključni šum.',
-        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon ostankov oziroma rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
+        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
         practicalInsight: 'V financah in ekonometriji je R² osrednja metrika za primerjavo uspešnosti različnih napovednih modelov.',
         mathematicalTheory: 'Razcep variance: SST = SSM + SSE, kjer je SST = \\sum (y_i - \\bar{y})^2, SSM = \\sum (\\hat{y}_i - \\bar{y})^2 in SSE = \\sum e_i^2. R^2 = \\frac{SSM}{SST} = 1 - \\frac{\\sum e_i^2}{\\sum (y_i - \\bar{y})^2}.'
       },
       textbookWisdom: {
         simpleQuote: 'Reziduali razkrijejo tisto, kar je premica spregledala: dober model za seboj pusti le čist, enakomeren naključni šum.',
-        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon ostankov oziroma rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
+        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
         practicalInsight: 'V financah in ekonometriji je R² osrednja metrika za primerjavo uspešnosti različnih napovednih modelov.',
         mathematicalTheory: 'Razcep variance: SST = SSM + SSE, kjer je SST = \\sum (y_i - \\bar{y})^2, SSM = \\sum (\\hat{y}_i - \\bar{y})^2 in SSE = \\sum e_i^2. R^2 = \\frac{SSM}{SST} = 1 - \\frac{\\sum e_i^2}{\\sum (y_i - \\bar{y})^2}.'
       },
@@ -544,6 +544,125 @@ print(f"95 % PREDIKCIJSKI za POSAMEZNIKA: [{pi_indiv[0]:.1f} cm; {pi_indiv[1]:.1
           return {
             output: `Točkovna napoved za očeta 175 cm: 177.3 cm\n95 % CI za POVPReČJE sinov:     [175.7 cm; 178.9 cm] (širina 3.2 cm)\n95 % PREDIKCIJSKI za POSAMEZNIKA: [172.5 cm; 182.1 cm] (širina 9.6 cm)\nSklep: Predikcijski interval za posameznika je 3-krat širši, ker vključuje naravno variabilnost posameznega otroka.`,
             metrics: { pred: 177.3, ci_w: 3.2, pi_w: 9.6 }
+          };
+        }
+      }
+    },
+    {
+      id: 'unit-8-6',
+      unitNumber: '8.6',
+      chapterId: 'chapter-8',
+      title: 'Vizualizacija regresijskih modelov in negotovosti (Forest & Coefficient Plots)',
+      subtitle: 'Kieran Healy & Andrew Gelman: Kako nadomestiti tabele z zvezdicami s prikazom intervalov zaupanja',
+      leadParagraph: 'Tradicionalno poročanje regresijskih analiz v družboslovju in znanosti temelji na nepreglednih tabelah s stotinami številk in zvezdicami za p-vrednosti (*, **, ***). Sodobna statistična didaktika (Kieran Healy: Data Visualization, Poglavje 6) zagovarja vizualizacijo modelskih parametrov z grafikoni koeficientov (Forest / Dot-and-Whisker plots). S tem bralec nemudoma vidi velikost učinka, stopnjo negotovosti (širino intervala) in primerjavo več konkurenčnih modelov hkrati.',
+      deepDive: 'Vsak ocenjen regresijski koeficient $\\hat{\\beta}_j$ ima standardno napako $\\text{SE}(\\hat{\\beta}_j)$ in pripadajoči $(1 - \\alpha)$ interval zaupanja $[\\hat{\\beta}_j - z_{1-\\alpha/2}\\text{SE},\\; \\hat{\\beta}_j + z_{1-\\alpha/2}\\text{SE}]$. Ko narišemo točkovno oceno kot piko in interval zaupanja kot vodoravno daljico (whisker), ter vključimo navpično referenčno premico $\\beta = 0$, dosežemo tri ključne prednosti pred tabelo številk: 1) Človeško oko hipno zazna, ali interval seka ničlo (odsotnost statistične značilnosti ob izbrani stopnji $\\alpha$), 2) Širina intervala jasno opozori na preciznost ocene (široki intervali = majhna moč ali visoka kolinearnost), 3) Vzporedni prikaz modelov (npr. M1 brez kontrolnih spremenljivk in M2 s kontrolami) nazorno pokaže pristranskost opustitve spremenljivk (Omitted Variable Bias).',
+      mnemonic: {
+        eli5: 'Tabela z zvezdicami je kot jedilni list brez slik in cen, kjer so le opombe "zelo priporočamo". Grafikon koeficientov (Forest plot) pa vam natančno pokaže velikost porcije (oceno učinka) in negotovost priprave (širino intervala)!',
+        anchor: 'Pike = ocene učinka; Vodoravne črtice = interval zaupanja; Navpična črta = 0 (ničelni učinek). Če črtica seka ničlo, učinek ni statistično značilen.',
+        fallacyWarning: {
+          name: 'Pasti zvezdične tiranije (Star-gazing Fallacy)',
+          description: 'Zmotno prepričanje, da tri zvezdice (p < 0.001) pomenijo vsebinski ali ekonomski pomen učinka, odsotnost zvezdic pa dokazuje, da je učinek natanko enak nič.',
+          example: 'Koeficient z $\\hat{\\beta} = 0.0001$ ob $n = 1.000.000$ ima $p < 0.001$, a je v praksi popolnoma nepomemben. Nasprotno ima ključni učinek $\\hat{\\beta} = 15.0$ ob $n = 20$ lahko $p = 0.08$ in je izjemno pomemben, a zgreši mejo $p < 0.05$.'
+        }
+      },
+      explanationLevels: {
+        simpleQuote: 'Prikaz ocen z intervali zaupanja (Forest plot) premaga vsako tabelo številk z zvezdicami.',
+        simpleExplanation: 'Namesto da bralca prisilimo k primerjanju 40 številk v tabeli, narišemo vsako spremenljivko na vertikalni osi, na horizontalni osi pa njen vpliv s 95 % intervalom zaupanja.',
+        practicalInsight: 'V paketu R s funkcijami broom::tidy(model) in ggplot2 zlahka ustvarimo objavljive grafikone koeficientov z geom_pointrange() ali geom_errorbarh(). V Pythonu to omogoča seaborn ali statsmodels.',
+        mathematicalTheory: 'V večkratni linearni regresiji $\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$ je ocena $\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{y}$ z variančno-kovariančno matriko $\\text{Var}(\\hat{\\boldsymbol{\\beta}}) = \\sigma^2 (\\mathbf{X}^T\\mathbf{X})^{-1}$. Interval zaupanja za $\\beta_j$ je $\\hat{\\beta}_j \\pm t_{n-k-1, 1-\\alpha/2} \\sqrt{[\\text{Var}(\\hat{\\boldsymbol{\\beta}})]_{jj}}$.'
+      },
+      textbookWisdom: {
+        simpleQuote: 'Prikaz ocen z intervali zaupanja (Forest plot) premaga vsako tabelo številk z zvezdicami.',
+        simpleExplanation: 'Namesto da bralca prisilimo k primerjanju 40 številk v tabeli, narišemo vsako spremenljivko na vertikalni osi, na horizontalni osi pa njen vpliv s 95 % intervalom zaupanja.',
+        practicalInsight: 'V sodobnem poročanju podatkovne znanosti grafikoni koeficientov drastično zmanjšajo kognitivno obremenitev odločevalcev in preprečijo napačno interpretacijo mejnih p-vrednosti.',
+        mathematicalTheory: 'Standardna napaka ocene: $\\text{SE}(\\hat{\\beta}_j) = \\frac{s_e}{\\sqrt{\\sum (x_{ij} - \\bar{x}_j)^2 (1 - R_j^2)}}$, kjer $R_j^2$ meri kolinearnost spremenljivke $x_j$ z vsemi ostalimi prediktorji (VIF faktor).'
+      },
+      cueBannerText: 'Preučite razliko med predstavitvijo regresijskega modela s tabelo številk in modernim grafikonom koeficientov.',
+      hasSimulation: true,
+      poeQuiz: {
+        question: 'Kaj neposredno razberemo iz grafikona regresijskih koeficientov (Forest plot), če 95 % interval zaupanja za spremenljivko "Starost" sega od -1.2 do +2.4?',
+        prompt: 'Upoštevajte lego intervala glede na navpično ničelno premico (ničelni učinek):',
+        options: [
+          {
+            id: 'opt-1',
+            text: 'Interval vsebuje vrednost 0, zato ob stopnji značilnosti α = 0.05 ne moremo zavrniti ničelne hipoteze (učinek ni statistično značilen).',
+            isCorrect: true,
+            explanation: 'Pravilno! Ker interval prečka vrednost 0, podatki niso nezdružljivi z ničelnim učinkom ob 95 % zaupanju (p > 0.05).'
+          },
+          {
+            id: 'opt-2',
+            text: 'Ker je zgornja meja (+2.4) večja od spodnje (-1.2), je učinek zagotovo pozitiven in statistično značilen.',
+            isCorrect: false,
+            explanation: 'Napačno. Prisotnost negativnih in pozitivnih vrednosti v intervalu pomeni, da je negotovost prevelika, da bi določili smer učinka z 95 % gotovostjo.'
+          },
+          {
+            id: 'opt-3',
+            text: 'Model je neveljaven in ga moramo v celoti zavreči.',
+            isCorrect: false,
+            explanation: 'Napačno. Neveljavnost enega koeficienta le pomeni, da ta spremenljivka ob prisotnosti ostalih ne prispeva k napovedi.'
+          }
+        ],
+        insight: 'Vizualizacija intervala zaupanja nemudoma pokaže tako točkovno oceno kot tudi njeno statistično (ne)značilnost glede na ničlo!',
+        followUpExperiment: 'V Laboratoriju za vizualizacijo odprite zavihek "6. Vizualizacija modelov & Negotovost" in preizkusite spreminjanje stopnje zaupanja z 90 % na 99 %.'
+      },
+      mathProof: {
+        summaryLatex: '\\beta_j \\in [\\hat{\\beta}_j - t_{n-k-1, \\alpha/2} \\text{SE}(\\hat{\\beta}_j), \\; \\hat{\\beta}_j + t_{n-k-1, \\alpha/2} \\text{SE}(\\hat{\\beta}_j)]',
+        steps: [
+          {
+            title: '1. Matrični zapis OLS ocene',
+            latex: '\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{y}',
+            explanation: 'Optimalni vektor ocen, ki minimizira vsoto kvadratov odstopanj v večrazsežnem prostoru.'
+          },
+          {
+            title: '2. Izpeljava standardne napake posameznega koeficienta',
+            latex: '\\text{SE}(\\hat{\\beta}_j) = \\sqrt{s^2 ((\\mathbf{X}^T\\mathbf{X})^{-1})_{jj}}',
+            explanation: 'Diagonala inverzne matrike določa individualno variabilnost vsakega ocenjenega parametra.'
+          },
+          {
+            title: '3. Konstrukcija simetričnega intervala zaupanja',
+            latex: 'P\\left( \\hat{\\beta}_j - t_{crit} \\text{SE}(\\hat{\\beta}_j) \\le \\beta_j \\le \\hat{\\beta}_j + t_{crit} \\text{SE}(\\hat{\\beta}_j) \\right) = 1 - \\alpha',
+            explanation: 'V 95 % naključnih vzorcev bo tako skonstruiran interval zaobjel pravo populacijsko vrednost parametra.'
+          }
+        ]
+      },
+      miniJupyter: {
+        language: 'python',
+        title: 'Primerjava več regresijskih modelov in izris koeficientov',
+        defaultCode: `import statsmodels.api as sm
+import numpy as np
+import pandas as pd
+
+# Simulacija podatkov: Plača glede na izobrazbo, izkušnje in veščine
+np.random.seed(42)
+n = 200
+izobrazba = np.random.normal(14, 2.5, n)
+izkusnje = np.random.uniform(1, 25, n)
+vescine = 0.5 * izobrazba + np.random.normal(10, 3, n)
+placa = 800 + 45 * izobrazba + 25 * izkusnje + 35 * vescine + np.random.normal(0, 50, n)
+
+df = pd.DataFrame({'Placa': placa, 'Izobrazba': izobrazba, 'Izkusnje': izkusnje, 'Vescine': vescine})
+
+# Model 1: Enostavni (samo izobrazba)
+X1 = sm.add_constant(df[['Izobrazba']])
+m1 = sm.OLS(df['Placa'], X1).fit()
+
+# Model 2: Večkratni (z izkušnjami in veščinami)
+X2 = sm.add_constant(df[['Izobrazba', 'Izkusnje', 'Vescine']])
+m2 = sm.OLS(df['Placa'], X2).fit()
+
+print("=== MODEL 1 (Surova ocena izobrazbe) ===")
+print(f"Koeficient Izobrazbe: {m1.params['Izobrazba']:.2f} (SE: {m1.bse['Izobrazba']:.2f})")
+print(f"95% CI: [{m1.conf_int().loc['Izobrazba', 0]:.2f}, {m1.conf_int().loc['Izobrazba', 1]:.2f}]")
+
+print("\\n=== MODEL 2 (Po kontroli za izkušnje in veščine) ===")
+print(f"Koeficient Izobrazbe: {m2.params['Izobrazba']:.2f} (SE: {m2.bse['Izobrazba']:.2f})")
+print(f"95% CI: [{m2.conf_int().loc['Izobrazba', 0]:.2f}, {m2.conf_int().loc['Izobrazba', 1]:.2f}]")
+print(f"Koeficient Veščin:    {m2.params['Vescine']:.2f} (SE: {m2.bse['Vescine']:.2f})")`,
+        description: 'Preučite, kako vključitev kontrolnih spremenljivk vpliva na ocene koeficientov in njihove intervale zaupanja.',
+        runCode: (code: string) => {
+          return {
+            output: `=== MODEL 1 (Surova ocena izobrazbe) ===\nKoeficient Izobrazbe: 62.45 (SE: 4.12)\n95% CI: [54.38, 70.52]\n\n=== MODEL 2 (Po kontroli za izkušnje in veščine) ===\nKoeficient Izobrazbe: 44.18 (SE: 3.85)\n95% CI: [36.63, 51.73]\nKoeficient Veščin:    36.12 (SE: 2.94)\n95% CI: [30.36, 41.88]\n\nUgotovitev: V Modelu 1 je bila izobrazba precenjena (62.45 vs 44.18), ker je prevzela del vpliva koreliranih tehničnih veščin (Omitted Variable Bias). Forest plot to spremembo prikaže nemudoma!`,
+            metrics: { m1_beta: 62.45, m2_beta: 44.18, omitted_bias: 18.27 }
           };
         }
       }

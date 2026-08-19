@@ -15,6 +15,8 @@
     padding: 0;
     height: 100%;
     width: 100%;
+    user-select: text;
+    -webkit-user-select: text;
   }
 
   *,
@@ -25,6 +27,44 @@
   textarea,
   select {
     font-family: inherit;
+  }
+
+  /* Universal Clickable & Interactive Element UX Polish */
+  button,
+  [role="button"],
+  select,
+  summary,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="range"],
+  label[for],
+  label:not([for=""]),
+  .cursor-pointer,
+  [tabindex="0"],
+  details > summary {
+    cursor: pointer;
+  }
+
+  /* Range sliders track and thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    cursor: pointer;
+  }
+
+  /* Disabled states should strictly show not-allowed */
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled,
+  [aria-disabled="true"],
+  .disabled\:cursor-not-allowed:disabled {
+    cursor: not-allowed !important;
   }
 }
 

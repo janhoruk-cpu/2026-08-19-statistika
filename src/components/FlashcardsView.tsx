@@ -174,7 +174,7 @@ export const FlashcardsView: React.FC<FlashcardsViewProps> = ({
   };
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Top Header */}
       <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between z-20 shrink-0">
         <div className="flex items-center gap-3 sm:gap-4">
@@ -259,7 +259,7 @@ export const FlashcardsView: React.FC<FlashcardsViewProps> = ({
             {/* Interactive Flippable Card */}
             <div
               onClick={() => setIsFlipped(!isFlipped)}
-              className={`min-h-[280px] sm:min-h-[320px] w-full rounded-3xl p-6 sm:p-10 cursor-pointer transition-all duration-300 border shadow-lg flex flex-col justify-between select-none ${
+              className={`min-h-[280px] sm:min-h-[320px] w-full rounded-3xl p-6 sm:p-10 cursor-pointer transition-all duration-300 border shadow-lg flex flex-col justify-between ${
                 isFlipped
                   ? 'bg-indigo-900/90 text-white border-indigo-600/80 ring-2 ring-indigo-500/30'
                   : 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700'

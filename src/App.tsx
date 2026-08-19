@@ -391,7 +391,7 @@ export default function App() {
 
   // MAIN CLASSROOM VIEW
   return (
-    <div className="flex flex-col h-screen w-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden select-none">
+    <div className="flex flex-col h-screen w-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* 1. Header with Tools & Search */}
       <Header
         currentUnit={currentUnit}
@@ -401,6 +401,7 @@ export default function App() {
         onToggleDark={() => setIsDark(!isDark)}
         isSidebarOpen={isSidebarOpen}
         onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+        onOpenCurriculum={() => navigateTo('curriculum')}
         onOpenSettings={() => navigateTo('settings')}
         onOpenGlossary={() => handleOpenGlossary()}
         onOpenCalculators={() => navigateTo('calculators')}

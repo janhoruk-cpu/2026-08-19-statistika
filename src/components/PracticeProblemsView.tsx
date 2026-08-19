@@ -61,7 +61,7 @@ export const PracticeProblemsView: React.FC<PracticeProblemsViewProps> = ({ onBa
   };
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto">
       {/* Top Header */}
       <div className="sticky top-0 z-20 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -181,9 +181,9 @@ export const PracticeProblemsView: React.FC<PracticeProblemsViewProps> = ({ onBa
                 <HelpCircle className="h-4 w-4" />
                 <span>Besedilo naloge</span>
               </div>
-              <div className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+              <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
                 <FormattedMathText text={selectedProblem.problemStatement} />
-              </div>
+              </p>
 
               {/* Given Data Pills */}
               <div className="pt-2 border-t border-indigo-100 dark:border-indigo-900/40">
@@ -273,9 +273,9 @@ export const PracticeProblemsView: React.FC<PracticeProblemsViewProps> = ({ onBa
                       </span>
                     </div>
 
-                    <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       <FormattedMathText text={st.explanation} />
-                    </div>
+                    </p>
 
                     {st.mathFormula && (
                       <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-x-auto text-xs sm:text-sm">

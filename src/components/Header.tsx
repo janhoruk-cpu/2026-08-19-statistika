@@ -33,6 +33,7 @@ interface HeaderProps {
   onToggleDark: () => void;
   isSidebarOpen: boolean;
   onToggleSidebar: () => void;
+  onOpenCurriculum: () => void;
   onOpenSettings: () => void;
   onOpenGlossary: () => void;
   onOpenCalculators: () => void;
@@ -54,6 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleDark,
   isSidebarOpen,
   onToggleSidebar,
+  onOpenCurriculum,
   onOpenSettings,
   onOpenGlossary,
   onOpenCalculators,
@@ -97,28 +99,24 @@ export const Header: React.FC<HeaderProps> = ({
   }, [isToolsOpen]);
 
   return (
-    <header className="h-14 border-b border-slate-200/90 dark:border-slate-800/90 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 sm:px-5 flex items-center justify-between z-30 shrink-0 select-none">
-      {/* LEFT: Curriculum Drawer & Current Lesson Breadcrumb */}
+    <header className="h-14 border-b border-slate-200/90 dark:border-slate-800/90 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 sm:px-5 flex items-center justify-between z-30 shrink-0">
+      {/* LEFT: Full Curriculum Roadmap & Current Unit Breadcrumb */}
       <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
         <button
-          onClick={onToggleSidebar}
-          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
-            isSidebarOpen
-              ? 'border-indigo-300 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 shadow-2xs'
-              : 'border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-300'
-          }`}
-          title="Učni načrt"
+          onClick={onOpenCurriculum}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 bg-white dark:bg-slate-800/90 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/40 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-all shadow-2xs cursor-pointer group"
+          title="Učni načrt in pregled vseh učnih enot"
         >
-          <Menu className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-          <span className="hidden sm:inline">Učni načrt</span>
+          <BookOpen className="h-4 w-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform" />
+          <span>Učni načrt</span>
         </button>
 
         {/* Current Unit Badge */}
         <div className="hidden lg:flex items-center gap-2 min-w-0 border-l border-slate-200 dark:border-slate-800 pl-3">
           <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/80">
-            {currentUnit.unitNumber}
+            {currentUnit.unitNumber.startsWith('Uvod') ? currentUnit.unitNumber : `Enota ${currentUnit.unitNumber}`}
           </span>
-          <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate max-w-[220px]">
+          <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate max-w-[240px]">
             {currentUnit.title}
           </span>
         </div>
@@ -129,8 +127,8 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => prevUnit && onSelectUnit(prevUnit.id)}
           disabled={!prevUnit}
-          className="p-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-          title="Prejšnja lekcija (Ctrl + ←)"
+          className="p-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-all"
+          title="Prejšnja učna enota (Ctrl + ←)"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
@@ -142,8 +140,8 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => nextUnit && onSelectUnit(nextUnit.id)}
           disabled={!nextUnit}
-          className="p-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-          title="Naslednja lekcija (Ctrl + →)"
+          className="p-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-all"
+          title="Naslednja učna enota (Ctrl + →)"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -241,7 +239,7 @@ export const Header: React.FC<HeaderProps> = ({
                   <FileText className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Študije primerov</div>
+                  <div className="font-bold">Študije primerov (Case Studies)</div>
                   <div className="text-[10px] text-slate-500 font-normal">
                     Resnični medicinski in družbeni poskusi
                   </div>
@@ -260,9 +258,9 @@ export const Header: React.FC<HeaderProps> = ({
                   <AlertOctagon className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Pasti in paradoksi</div>
+                  <div className="font-bold">Pasti & paradoksi</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    Simpsonov paradoks, P-vrednosti in pasti
+                    Simpsonov paradoks, P-hacking, Wald
                   </div>
                 </div>
               </button>
@@ -279,9 +277,9 @@ export const Header: React.FC<HeaderProps> = ({
                   <Sigma className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Formularij in izreki</div>
+                  <div className="font-bold">Formularij & izreki</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    Matematični obrazci z razlagami
+                    KaTeX matematični obrazci
                   </div>
                 </div>
               </button>
@@ -300,7 +298,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <div>
                   <div className="font-bold">Kartice za ponavljanje</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    Aktivni priklic in samotestiranje
+                    Active recall in samotestiranje
                   </div>
                 </div>
               </button>

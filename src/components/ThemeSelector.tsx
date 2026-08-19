@@ -28,7 +28,7 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const themeList = Object.values(THEMES);
+  const themeEntries = Object.entries(THEMES) as [ThemeId, (typeof THEMES)[ThemeId]][];
   const activeTheme = THEMES[currentTheme] || THEMES.indigo;
 
   return (
@@ -63,15 +63,15 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({
               Barvne Teme
             </div>
             <div className="mt-1 space-y-1">
-              {themeList.map(t => (
+              {themeEntries.map(([themeKey, t]) => (
                 <button
-                  key={t.name}
+                  key={themeKey}
                   onClick={() => {
-                    onSelectTheme(t.name);
+                    onSelectTheme(themeKey);
                     setOpen(false);
                   }}
                   className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs transition-colors ${
-                    currentTheme === t.name
+                    currentTheme === themeKey
                       ? 'bg-indigo-600/20 text-indigo-300 font-semibold'
                       : 'text-slate-300 hover:bg-slate-900 hover:text-white'
                   }`}

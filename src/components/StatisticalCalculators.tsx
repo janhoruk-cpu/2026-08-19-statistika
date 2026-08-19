@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FormattedMathText } from './FormattedMathText';
+import { DataVizLab } from './DataVizLab';
 import {
   Calculator,
   ArrowLeft,
@@ -25,6 +26,7 @@ import {
   PieChart,
   Zap,
   Crosshair,
+  Eye,
 } from 'lucide-react';
 
 interface StatisticalCalculatorsProps {
@@ -46,7 +48,8 @@ type CalculatorTab =
   | 'anova'
   | 'poisson'
   | 'transform'
-  | 'regIntervals';
+  | 'regIntervals'
+  | 'vizLab';
 
 export const StatisticalCalculators: React.FC<StatisticalCalculatorsProps> = ({
   onBack,
@@ -2243,7 +2246,7 @@ export const StatisticalCalculators: React.FC<StatisticalCalculatorsProps> = ({
   }, [regIntData, regIntX0, activeTab]);
 
   return (
-    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto select-none">
+    <div className="h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-y-auto">
       {/* Header */}
       <div className="sticky top-0 z-20 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -2421,6 +2424,18 @@ export const StatisticalCalculators: React.FC<StatisticalCalculatorsProps> = ({
           >
             <Crosshair className="h-3.5 w-3.5" />
             <span>Regresijski intervali (CI vs. PI)</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('vizLab')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all whitespace-nowrap ${
+              activeTab === 'vizLab'
+                ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-2xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+            }`}
+          >
+            <Eye className="h-3.5 w-3.5 text-indigo-500" />
+            <span>Vizualni laboratorij (Percepcija & Ostanki)</span>
           </button>
         </div>
       </div>
@@ -5236,6 +5251,11 @@ export const StatisticalCalculators: React.FC<StatisticalCalculatorsProps> = ({
             </div>
           </div>
         )}
+
+        {/* ==================================================== */}
+        {/* TAB 14: DATA VIZ & PERCEPTION LAB */}
+        {/* ==================================================== */}
+        {activeTab === 'vizLab' && <DataVizLab onSelectUnit={onSelectUnit} />}
       </main>
     </div>
   );

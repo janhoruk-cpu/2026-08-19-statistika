@@ -105,4 +105,42 @@ export const PARADOXES_DATA: ParadoxItem[] = [
       'Rezultatov iz specifičnih kliničnih vzorcev ne posplošujte na splošno populacijo brez ustreznih korekcij.',
     ],
   },
+  {
+    id: 'anscombe-vanhove-patterns',
+    title: 'Anscombov kvartet & Vanhovejeva razpršenost',
+    subtitle: 'Enaka korelacija ($r = 0.81$ oz. $0.60$), enaka povprečja, a radikalno različna resničnost',
+    category: 'Korelacija',
+    chapterLink: 'unit-9-1',
+    story:
+      'Leta 1973 je statistik Francis Anscombe sestavil štiri podatkovne nize, ki imajo identično povprečje $X$, identično povprečje $Y$, identično varianco in identično korelacijo ($r = 0.816$) ter isto regresijsko premico $\\hat{y} = 3.0 + 0.5x$. Ko pa podatke narišemo, je prvi niz lepa premica, drugi popolna nelinearna parabola, tretji ravna črta z enim osamelcem, četrti pa navpičen stolpec točk z eno samo ločeno točko!',
+    realWorldExample:
+      'Jan Vanhove (2016) je to razširil na 16 različnih podatkovnih vzorcev – vsi imajo Pearsonov $r = 0.60$. Med njimi so bimodalne porazdelitve, heteroscedastičnost (lihasto naraščanje šuma), sinusoidno nihanje in dve ločeni skupini. Če bi se zanašali zgolj na številko $r = 0.60$, bi zgrešili bistveno dinamiko pojava.',
+    mathExplanation:
+      'Povzetek s povprečjem in kovarianco predpostavlja bivariatno normalnost. Pearsonov koeficient $r = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{(n-1)s_x s_y}$ povzema zgolj linearno komponento in je izjemno občutljiv na posamezne vzvodne točke (*high leverage points*). Šele grafikon ostankov ($e_i = y_i - \\hat{y}_i$) razkrije manjkajoče nelinearne člene.',
+    howToAvoid: [
+      'Nikoli ne sprejmite statističnega sklepa o korelaciji ali regresiji brez predhodnega vizualnega pregleda razsevnega grafikona (*scatterplot*).',
+      'Vedno narišite grafikon ostankov (*residuals vs fitted*) – če ostanki kažejo kakršenkoli vzorec ali lok, linearni model ni primeren.',
+      'Preverite vplivnost osamelcev s Cookovo razdaljo ali primerjajte z robustno regresijo (RLM).',
+    ],
+    simulationType: 'spurious',
+  },
+  {
+    id: 'dynamite-plots-fallacy',
+    title: 'Past "dinamitnih grafov" (Dynamite Plots Fallacy)',
+    subtitle: 'Zakaj stolpčni grafikoni z brki popačijo simetrično negotovost in prikrijejo pravo porazdelitev',
+    category: 'Pasti sklepanja',
+    chapterLink: 'unit-7-1',
+    story:
+      'V mnogih znanstvenih revijah avtorji še vedno rišejo stolpčne diagrame za zvezne podatke z eno samo črtico na vrhu (ki spominja na vžigalnik za dinamit). Ta oblika grafa prikrije asimetrijo, bimodalnost in osamelce ter ustvari napačen vtis, da se vsa teža podatkov nahaja znotraj telesa stolpca.',
+    realWorldExample:
+      'Dva podatkovna niza imata lahko popolnoma enako povprečje $\\bar{x} = 50$ in enak standardni odklon $s = 10$. Vendar ima prvi niz popolnoma normalno Gaussovo obliko, drugi pa dve ločeni skupini (bimodalnost pri 40 in 60) ali pa 90 % točk pri 45 in en ogromen osamelec pri 95. Dinamitni grafikon bo za oba narisal identičen stolpec!',
+    mathExplanation:
+      'Telo stolpca v stolpčnem grafikonu naravno kodira dolžino od ničle ($0 \\to \\bar{x}$), kar je smiselno za števne ali frekvenčne podatke, povsem nesmiselno pa za zvezne porazdelitve. Vizualna površina stolpca privlači pozornost na območje med $0$ in $\\bar{x}$, kjer pogosto sploh ni podatkov, medtem ko je prava negotovost simetrična okrog ocene $\\bar{x} \\pm t^* \\cdot \\text{SE}$.',
+    howToAvoid: [
+      'Uporabite točkovne grafe z intervali (*pointrange* ali *Forest plot*), kjer točka predstavlja oceno, daljica pa 95 % interval zaupanja.',
+      'Za prikaz porazdelitve uporabite škatle z brki (*boxplot*), violinske grafe (*violin plot*) ali grebenske grafe gostote (*ridgelines*).',
+      'Kadar je podatkov malo ($N < 50$), prikažite surove točke z rahlim stresanjem (*jittered scatter*).',
+    ],
+    simulationType: 'simpson',
+  },
 ];
