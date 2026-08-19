@@ -107,13 +107,10 @@ export const Header: React.FC<HeaderProps> = ({
               ? 'border-indigo-300 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 shadow-2xs'
               : 'border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/70 text-slate-700 dark:text-slate-300'
           }`}
-          title={`Učni načrt (${ALL_UNITS.length} lekcij)`}
+          title="Učni načrt"
         >
           <Menu className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
           <span className="hidden sm:inline">Učni načrt</span>
-          <span className="px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-mono text-slate-500">
-            {ALL_UNITS.length}
-          </span>
         </button>
 
         {/* Current Unit Badge */}
@@ -244,7 +241,7 @@ export const Header: React.FC<HeaderProps> = ({
                   <FileText className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Študije primerov (Case Studies)</div>
+                  <div className="font-bold">Študije primerov</div>
                   <div className="text-[10px] text-slate-500 font-normal">
                     Resnični medicinski in družbeni poskusi
                   </div>
@@ -263,9 +260,9 @@ export const Header: React.FC<HeaderProps> = ({
                   <AlertOctagon className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Pasti & paradoksi</div>
+                  <div className="font-bold">Pasti in paradoksi</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    Simpsonov paradoks, P-hacking, Wald
+                    Simpsonov paradoks, P-vrednosti in pasti
                   </div>
                 </div>
               </button>
@@ -282,9 +279,9 @@ export const Header: React.FC<HeaderProps> = ({
                   <Sigma className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="font-bold">Formularij & izreki</div>
+                  <div className="font-bold">Formularij in izreki</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    KaTeX matematični obrazci
+                    Matematični obrazci z razlagami
                   </div>
                 </div>
               </button>
@@ -303,7 +300,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <div>
                   <div className="font-bold">Kartice za ponavljanje</div>
                   <div className="text-[10px] text-slate-500 font-normal">
-                    Active recall in samotestiranje
+                    Aktivni priklic in samotestiranje
                   </div>
                 </div>
               </button>

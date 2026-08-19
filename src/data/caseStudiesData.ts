@@ -190,7 +190,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         'Logistični model pri temperaturi $31^\\circ\\text{F}$ napove verjetnost odpovedi tesnila $p > 0.99$ (skoraj gotova odpoved), medtem ko je pri $75^\\circ\\text{F}$ tveganje manjše od $1\\%$.',
     },
     findings: [
-      'Izključitev poletov brez poškodb (analiza le uspešnih/problematičnih) je ustvarila usodno pristranskost preživetja (Survivorship bias).',
+      'Izključitev poletov brez poškodb (analiza le problematičnih) je ustvarila usodno pristranskost preživelih (pristranskost izbire).',
       'Logistična regresija je optimalno orodje za modeliranje fizikalnih verjetnosti odpovedi komponent.',
       'Katastrofa velja za najpomembnejši zgodovinski primer nujnosti pravilne statistične analize pri odločanju o življenju in smrti.',
     ],
@@ -298,8 +298,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         'V enostavni regresiji se zdi, da trajanje dražbe znižuje ceno ($b_1 = -1.08 $, $p < 0.05$). Vendar večkratna regresija razkrije, da so prodajalci daljše dražbe pogosteje uporabljali za rabljene igre z manj dodatki. Po vključitvi stanja igre vpliv trajanja postane statistično neznačilen ($p = 0.43$).',
     },
     findings: [
-      'Indikatorska (dummy) spremenljivka za novo igro doda povprečno $+7.28\\$$ k ceni ob enakem številu volanov.',
-      'Vsak priloženi volan (Wii Wheel) v povprečju zviša ceno za $+7.29\\$$ ($p < 0.0001$).',
+      'Indikatorska spremenljivka (t.i. navidezna spremenljivka ali indikator) za novo igro doda povprečno $+7.28\\$$ k ceni ob enakem številu volanov.',
+      'Vsak priloženi igralni volan v povprečju zviša ceno za $+7.29\\$$ ($p < 0.0001$).',
       'Izločanje osamelcev: Dve dražbi sta vsebovali celotno konzolo namesto le igre in sta predstavljali ekstremni vplivni točki ($y > 100\\$$), ki sta morali biti analizirani ločeno.',
     ],
     takeaway:
@@ -311,7 +311,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: 'opportunity-cost-coin-dish',
-    title: 'Eksperiment s 50 centi & Opredelitev stroška izgubljene priložnosti',
+    title: 'Eksperiment s 50 centi in opredelitev stroška izgubljene priložnosti',
     subtitle: 'Randomizirani vedenjsko-ekonomski poskus (Frederick et al., 2009; IMS2 Poglavje 2)',
     category: 'Eksperimenti',
     chapterLink: 'unit-10-3',
@@ -327,7 +327,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
     },
     keyQuestion:
-      'Ali eksplicitna navedba stroška izgubljene priložnosti (opportunity cost) statistično značilno zmanjša verjetnost nakupa?',
+      'Ali eksplicitna navedba stroška izgubljene priložnosti (oportunitetnega stroška) statistično značilno zmanjša verjetnost nakupa?',
     interactiveExploration: {
       type: 'contingency',
       description:
@@ -336,10 +336,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     findings: [
       'Ker je šlo za strog randomiziran eksperiment, je mogoče sklepati na neposredno vzročno-posledično povezavo med opomnikom in odločitvijo o nakupu.',
       'Razlika je statistično značilna na ravni $\\alpha = 0.01$ ($p < 0.01$).',
-      'Študija ponazarja moč preprostih vedenjskih spodbud (nudges) in pomen jasne opredelitve ničelne hipoteze o neodvisnosti $H_0: p_1 - p_2 = 0$.',
+      'Študija ponazarja moč preprostih vedenjskih spodbud in pomen jasne opredelitve ničelne hipoteze o neodvisnosti $H_0: p_1 - p_2 = 0$.',
     ],
     takeaway:
-      'Formulacija alternativnih možnosti (framing) močno vpliva na človeško presojo, statistični randomizacijski testi pa omogočajo natančno kvantifikacijo tega učinka.',
+      'Formulacija alternativnih možnosti (uokvirjanje problema) močno vpliva na človeško presojo, statistični randomizacijski testi pa omogočajo natančno kvantifikacijo tega učinka.',
     discussionQuestions: [
       'Kako bi izvedli permutacijski/randomizacijski test za ta poskus s simulacijo mešanja 150 kartic?',
       'Zakaj je bila randomizacija ključna za preprečitev motilcev (npr. osebnega dohodka študentov)?',
@@ -358,8 +358,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     dataSummary: {
       totalN: 530,
       groups: [
-        { name: 'Skupina z izogibanjem arašidom (Kontrola)', n: 263, successes: 36, rate: '13.7 % razvilo alergijo (fail OFC)' },
-        { name: 'Skupina z zgodnjim uživanjem (Terapija)', n: 267, successes: 5, rate: '1.9 % razvilo alergijo (fail OFC)' },
+        { name: 'Skupina z izogibanjem arašidom (Kontrola)', n: 263, successes: 36, rate: '13.7 % razvilo alergijo (pozitiven provokacijski test)' },
+        { name: 'Skupina z zgodnjim uživanjem (Terapija)', n: 267, successes: 5, rate: '1.9 % razvilo alergijo (pozitiven provokacijski test)' },
       ],
     },
     keyQuestion:
@@ -388,7 +388,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Epidemiologija',
     chapterLink: 'unit-5-1',
     summary:
-      'Primerjava letnih izdatkov za 1.000 uporabnikov kalifornijskega oddelka za motnje v razvoju (DDS) je na prvi pogled kazala na hudo etnično diskriminacijo, dokler analiza ni upoštevala starosti kot ključnega motilca (confounder).',
+      'Primerjava letnih izdatkov za 1.000 uporabnikov kalifornijskega oddelka za motnje v razvoju (DDS) je na prvi pogled kazala na hudo etnično diskriminacijo, dokler analiza ni upoštevala starosti kot ključne moteče spremenljivke (motilca).',
     background:
       'V Kaliforniji so raziskovalci ugotovili, da je povprečni letni znesek financiranja za belopolte uporabnike znašal 24.698 $, za hispanske uporabnike pa le 11.066 $. Dvovzorčni t-test je pokazal orjaško statistično značilno razliko ($t = 10.1, p < 0.0001$). Vložena je bila tožba zaradi etnične diskriminacije.',
     dataSummary: {
@@ -407,13 +407,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     findings: [
       'Simpsonov paradoks: agregirana analiza je bila močno popačena, ker so bili hispanski uporabniki večinoma otroci (kjer so izdatki nizki, saj zanje skrbijo starši), belopolti uporabniki pa večinoma starejši odrasli v domovih (kjer so izdatki 40.000–55.000 $).',
-      'Ko v regresijskem modelu ali stratificirani analizi kontroliramo starost (age cohort), etnična pripadnost nima nobenega statistično značilnega negativnega vpliva na financiranje.',
-      'Raziskava je postala temeljni učbeniški primer nevarnosti zanašanja na enostavne povprečne vrednosti brez preverjanja motilcev (confounding variables).',
+      'Ko v regresijskem modelu ali stratificirani analizi kontroliramo starostno skupino, etnična pripadnost nima nobenega statistično značilnega negativnega vpliva na financiranje.',
+      'Raziskava je postala temeljni učbeniški primer nevarnosti zanašanja na enostavne povprečne vrednosti brez preverjanja motečih spremenljivk.',
     ],
     takeaway:
       'Nikoli ne sprejemajte sklepov o vzročnosti ali diskriminaciji na podlagi surovih povprečij, ne da bi preučili distribucijo motilnih spremenljivk. Utežena povprečja lahko popolnoma obrnejo smer opaženega pojava.',
     discussionQuestions: [
-      'Kako lahko matematično zapišemo Simpsonov paradoks z uteženimi povprečji po kohortah?',
+      'Kako bi matematično zapisali Simpsonov paradoks z uteženimi povprečji po kohortah?',
       'Zakaj je logaritemska transformacija izdatkov pomagala pri preverjanju pogojev za t-test in regresijo?',
     ],
   },
@@ -424,7 +424,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Epidemiologija',
     chapterLink: 'unit-6-2',
     summary:
-      'Perzistentna pljučna hipertenzija novorojenčka (PPHN) je redka, a smrtno nevarna bolezen (1.9 na 1.000 rojstev). Kako so epidemiologi z metodo primerov s kontrolami (Case-Control) in razmerjem obetov (Odds Ratio) dokazali povezavo z jemanjem antidepresivov v nosečnosti?',
+      'Perzistentna pljučna hipertenzija novorojenčka (PPHN) je redka, a smrtno nevarna bolezen (1.9 na 1.000 rojstev). Kako so epidemiologi z metodo primerov s kontrolami in razmerjem obetov (Odds Ratio) dokazali povezavo z jemanjem antidepresivov v nosečnosti?',
     background:
       'Ker je bolezen izjemno redka, bi prospektivna kohortna študija zahtevala več sto tisoč nosečnic. Raziskovalci so zato uporabili retrospektivni načrt: vključili so 337 mater, katerih novorojenčki so imeli PPHN (primeri), in 836 primerljivih zdravih mater (kontrole), ter preverili jemanje SSRI po 20. tednu nosečnosti.',
     dataSummary: {
@@ -443,11 +443,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     findings: [
       'Dojenčki mater, ki so po 20. tednu jemale SSRI, so imeli 6-krat večje obete za razvoj PPHN ($OR = 6.00, 95\\% \\text{ IZ } [2.3, 15.9]$).',
-      'Predpostavka redke bolezni (Rare Disease Assumption): ker je PPHN v splošni populaciji redek ($< 0.2\\%$), velja $1 - p \\approx 1$, zato je razmerje obetov ($OR$) odličen približek za relativno tveganje ($RR \\approx OR = 6.0$).',
+      'Predpostavka redke bolezni: ker je PPHN v splošni populaciji redek ($< 0.2\\%$), velja $1 - p \\approx 1$, zato je razmerje obetov ($OR$) odličen približek za relativno tveganje ($RR \\approx OR = 6.0$).',
       'Študija ponazarja moč Fisherjevega natančnega testa v medicinski diagnostiki, ko so pričakovane frekvence v celicah majhne ($E_{11} = 5.8 < 10$).',
     ],
     takeaway:
-      'Pri raziskavah primerov s kontrolami nikoli ne računamo relativnega tveganja neposredno iz tabelarnih deležev, temveč uporabimo razmerje obetov (Odds Ratio = ad / bc).',
+      'Pri raziskavah primerov s kontrolami nikoli ne računamo relativnega tveganja neposredno iz tabelarnih deležev, temveč uporabimo razmerje obetov (OR = ad / bc).',
     discussionQuestions: [
       'Zakaj bi bila prospektivna randomizirana študija v tem primeru medicinsko in etično neizvedljiva?',
       'Kako Bayesov izrek povezuje razmerje obetov izpostavljenosti pri primerih/kontrolah z razmerjem obetov bolezni pri izpostavljenih/neizpostavljenih?',
@@ -478,7 +478,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         'V multipli regresiji z vključitvijo starosti ($b_{\\text{age}} = -1.27, p < 0.0001$) postane vpliv statinov pozitiven in statistično neznačilen ($b_{\\text{statin}} = +0.85, p = 0.74$). Po dodatni prilagoditvi za izobrazbo in srčno-žilne bolezni pa vpliv statinov znaša celo $+4.69$ točk ($p = 0.056, R^2 = 43.6\\%$).',
     },
     findings: [
-      'Prikriti motilec (Confounder): Starost je bila hkrati povezana z večjo verjetnostjo jemanja statinov in z naravnim upadom kognitivnih funkcij.',
+      'Prikrita moteča spremenljivka (motilec): Starost je bila hkrati povezana z večjo verjetnostjo jemanja statinov in z naravnim upadom kognitivnih funkcij.',
       'Po prilagoditvi za starost, stopnjo izobrazbe in prisotnost srčno-žilnih bolezni se je navidezni negativni vpliv statinov popolnoma razblinil.',
       'Pomembnost analize rezidualov: preverjanje konstantne variance napak in normalnosti rezidualov je potrdilo zanesljivost multivariatnega linearnega modela.',
     ],

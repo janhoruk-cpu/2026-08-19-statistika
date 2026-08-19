@@ -181,9 +181,9 @@ export const PracticeProblemsView: React.FC<PracticeProblemsViewProps> = ({ onBa
                 <HelpCircle className="h-4 w-4" />
                 <span>Besedilo naloge</span>
               </div>
-              <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+              <div className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
                 <FormattedMathText text={selectedProblem.problemStatement} />
-              </p>
+              </div>
 
               {/* Given Data Pills */}
               <div className="pt-2 border-t border-indigo-100 dark:border-indigo-900/40">
@@ -273,9 +273,9 @@ export const PracticeProblemsView: React.FC<PracticeProblemsViewProps> = ({ onBa
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       <FormattedMathText text={st.explanation} />
-                    </p>
+                    </div>
 
                     {st.mathFormula && (
                       <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-x-auto text-xs sm:text-sm">

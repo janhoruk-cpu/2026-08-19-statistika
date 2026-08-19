@@ -48,12 +48,14 @@ export const POEQuiz: React.FC<POEQuizProps> = ({ quiz, unitId }) => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <fieldset className="space-y-3">
           <legend className="space-y-1 block">
-            <h2
+            <div
               id="poe-quiz-heading"
+              role="heading"
+              aria-level={2}
               className="text-base font-semibold text-slate-900 dark:text-slate-100"
             >
               <FormattedMathText text={`Vprašanje za razmislek: ${quiz.question}`} />
-            </h2>
+            </div>
             {quiz.prompt && (
               <div className="text-base text-slate-600 dark:text-slate-400">
                 <FormattedMathText text={quiz.prompt} />

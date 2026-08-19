@@ -218,9 +218,9 @@ export const ParadoxesView: React.FC<ParadoxesViewProps> = ({ onBack, onSelectUn
                 <Lightbulb className="h-3.5 w-3.5 text-amber-500" />
                 <span>Resnični zgodovinski primer iz prakse</span>
               </h4>
-              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+              <div className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-800/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                 <FormattedMathText text={selectedParadox.realWorldExample} />
-              </p>
+              </div>
             </div>
 
             {/* Mathematical Proof & Mechanism */}
@@ -248,9 +248,9 @@ export const ParadoxesView: React.FC<ParadoxesViewProps> = ({ onBack, onSelectUn
                     className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50/70 dark:bg-slate-800/30 p-3 rounded-xl border border-slate-100 dark:border-slate-800"
                   >
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <span className="flex-1">
+                    <div className="flex-1">
                       <FormattedMathText text={rule} />
-                    </span>
+                    </div>
                   </div>
                 ))}
               </div>

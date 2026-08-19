@@ -23,7 +23,7 @@ export const chapter0: ChapterConfig = {
         fallacyWarning: {
           name: 'Zanašanje na anekdotične dokaze',
           description: 'Sprejemanje splošnih odločitev na podlagi ene same osebne zgodbe ali govorice (npr. »Moj sosed je kadil 40 let in doživel 95 let, torej kajenje ni nevarno«).',
-          example: 'Ena sama osebna izkušnja je le osamelec (anecdote), statistična analiza pa preuči tisoče ljudi in razkrije pravo zakonitost.'
+          example: 'Ena sama osebna izkušnja je le posamezna anekdota (osamljen primer), statistična analiza pa preuči tisoče ljudi in razkrije pravo zakonitost.'
         }
       },
       explanationLevels: {

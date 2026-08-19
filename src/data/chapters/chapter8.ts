@@ -15,7 +15,7 @@ export const chapter8: ChapterConfig = {
       chapterId: 'chapter-8',
       title: 'Raztreseni grafikoni in Pearsonov koeficient korelacije (r)',
       subtitle: 'Smer, oblika in jakost linearne povezave med spremenljivkama',
-      leadParagraph: 'Kadar preučujemo odnos med dvema številskima spremenljivkama (npr. telesna teža in vnos kalorij ali višina staršev in višina otrok), podatke najprej prikažemo na raztresenem grafikonu (Scatterplot). Za merjenje jakosti in smeri linearne povezave uporabimo Pearsonov koeficient korelacije r.',
+      leadParagraph: 'Kadar preučujemo odnos med dvema številskima spremenljivkama (npr. telesna teža in vnos kalorij ali višina staršev in višina otrok), podatke najprej prikažemo na raztresenem grafikonu (razsevnem diagramu). Za merjenje jakosti in smeri linearne povezave uporabimo Pearsonov koeficient korelacije r.',
       deepDive: 'Pearsonov koeficient korelacije r meri moč in smer linearne povezanosti med dvema spremenljivkama: r = \\frac{1}{n-1} \\sum_{i=1}^n \\left(\\frac{x_i - \\bar{x}}{s_x}\\right) \\left(\\frac{y_i - \\bar{y}}{s_y}\\right). Vrednost r vedno leži med -1 in +1. Če je r = +1, točke ležijo na popolni naraščajoči premici; če je r = -1, ležijo na popolni padajoči premici; če je r = 0, med spremenljivkama ni linearne povezave. Izjemno pomembno: korelacija meri izključno LINEARNE odnose! Za ukrivljene odnose (npr. parabolo y = x²) je r lahko natanko 0, čeprav je med spremenljivkama popolna deterministična povezava. Poleg tega je koeficient r zelo občutljiv na osamelce.',
       mnemonic: {
         eli5: 'Korelacija je kot plesni par: r = +1 pomeni, da gresta vedno v isto smer v popolnem ritmu; r = -1, da gre eden naprej, drugi pa točno nazaj; r = 0 pa, da vsak pleše po svoje brez kakršnekoli povezave!',
@@ -240,13 +240,13 @@ print(f"Napoved za 8.5 h:   {y_napoved:.2f} minut")`,
       },
       explanationLevels: {
         simpleQuote: 'Reziduali razkrijejo tisto, kar je premica spregledala: dober model za seboj pusti le čist, enakomeren naključni šum.',
-        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
+        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon ostankov oziroma rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
         practicalInsight: 'V financah in ekonometriji je R² osrednja metrika za primerjavo uspešnosti različnih napovednih modelov.',
         mathematicalTheory: 'Razcep variance: SST = SSM + SSE, kjer je SST = \\sum (y_i - \\bar{y})^2, SSM = \\sum (\\hat{y}_i - \\bar{y})^2 in SSE = \\sum e_i^2. R^2 = \\frac{SSM}{SST} = 1 - \\frac{\\sum e_i^2}{\\sum (y_i - \\bar{y})^2}.'
       },
       textbookWisdom: {
         simpleQuote: 'Reziduali razkrijejo tisto, kar je premica spregledala: dober model za seboj pusti le čist, enakomeren naključni šum.',
-        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
+        simpleExplanation: 'Če je dejanska cena avtomobila 19.500 €, naš model pa je napovedal 18.000 €, je rezidual e = 19.500 - 18.000 = +1.500 € (model je ceno podcenil). Grafikon ostankov oziroma rezidualov (Residual Plot) ne sme kazati nobenega vzorca ali lijakaste oblike.',
         practicalInsight: 'V financah in ekonometriji je R² osrednja metrika za primerjavo uspešnosti različnih napovednih modelov.',
         mathematicalTheory: 'Razcep variance: SST = SSM + SSE, kjer je SST = \\sum (y_i - \\bar{y})^2, SSM = \\sum (\\hat{y}_i - \\bar{y})^2 in SSE = \\sum e_i^2. R^2 = \\frac{SSM}{SST} = 1 - \\frac{\\sum e_i^2}{\\sum (y_i - \\bar{y})^2}.'
       },

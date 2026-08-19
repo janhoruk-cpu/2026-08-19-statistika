@@ -14,10 +14,23 @@ interface FormattedMathTextProps {
 function renderInlineMath(text: string): string {
   if (!text) return '';
 
-  // Regex to match $...$ or \(...\)
-  const mathRegex = /(\$[^$]+\$|\\\([^\)]+\\\))/g;
+  // First replace $$...$$ display math blocks
+  const displayMathRegex = /\$\$([\s\S]+?)\$\$/g;
+  let processed = text.replace(displayMathRegex, (_, rawLatex) => {
+    try {
+      return katex.renderToString(rawLatex.trim(), {
+        displayMode: true,
+        throwOnError: false,
+        output: 'htmlAndMathml',
+      });
+    } catch {
+      return rawLatex;
+    }
+  });
 
-  return text.replace(mathRegex, (match) => {
+  // Then replace inline math $...$ or \(...\)
+  const mathRegex = /(\$[^$]+\$|\\\([^\)]+\\\))/g;
+  return processed.replace(mathRegex, (match) => {
     const rawLatex = match.startsWith('$')
       ? match.slice(1, -1)
       : match.slice(2, -2);

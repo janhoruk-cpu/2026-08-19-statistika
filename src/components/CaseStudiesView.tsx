@@ -158,9 +158,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                 <FileText className="h-3.5 w-3.5" />
                 <span>Ozadje in postavitev eksperimenta</span>
               </h4>
-              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <div className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <FormattedMathText text={selectedCase.background} />
-              </p>
+              </div>
             </div>
 
             {/* Empirical Data Summary Table */}
@@ -231,9 +231,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                     <span className="h-5 w-5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
-                    <span className="flex-1">
+                    <div className="flex-1">
                       <FormattedMathText text={f} />
-                    </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -245,9 +245,9 @@ export const CaseStudiesView: React.FC<CaseStudiesViewProps> = ({ onBack, onSele
                 <Lightbulb className="h-4 w-4 text-amber-600 shrink-0" />
                 <span>Glavno metodološko sporočilo</span>
               </div>
-              <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
+              <div className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
                 <FormattedMathText text={selectedCase.takeaway} />
-              </p>
+              </div>
             </div>
 
             {/* Discussion & Critical Thinking Prompts */}
